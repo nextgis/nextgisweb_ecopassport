@@ -1,0 +1,6 @@
+[nextgisweb.amd_packages]
+nextgisweb_lipetsk = nextgisweb_lipetsk:amd_packages
+
+[nextgisweb.packages]
+nextgisweb_lipetsk = nextgisweb_lipetsk:pkginfo
+
