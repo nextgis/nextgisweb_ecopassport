@@ -11,15 +11,20 @@ import pyramid.httpexceptions as exc
 
 
 def setup_pyramid(comp, config):
+
+    config.add_static_view(
+        name='lipetsk/static',
+        path='nextgisweb_lipetsk:lipetsk_site/static', cache_max_age=3600)
+
     config.add_route(
         'lipetsk.site.main',
         '/lipetsk/main',
-    ).add_view(show_main, renderer='nextgisweb:webmap/template/display.mako')
+    ).add_view(show_main, renderer='nextgisweb_lipetsk:lipetsk_site/template/display.mako')
 
     config.add_route(
         'lipetsk.site.selected',
         '/lipetsk/selected',
-    ).add_view(show_selected, renderer='nextgisweb:webmap/template/display.mako')
+    ).add_view(show_selected, renderer='nextgisweb_lipetsk:lipetsk_site/template/display.mako')
 
 
 
