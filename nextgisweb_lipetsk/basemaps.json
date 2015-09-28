@@ -1,13 +1,13 @@
 [{
-    "keyname": "osm-mapnik",
-    "mid": "ngw/openlayers/layer/OSM",
-    "title": "OpenStreetMap"
-}, {
     "keyname": "sputnik",
     "mid": "ngw/openlayers/layer/XYZ",
     "url": "http://tiles.maps.sputnik.ru/tiles/kmt2/${z}/${x}/${y}.png",
-    "title": "Sputnik"
-}, {
+    "title": "Карта Спутник"
+},  {
+    "keyname": "osm-mapnik",
+    "mid": "ngw/openlayers/layer/OSM",
+    "title": "Карта OpenStreetMap"
+},  {
     "keyname": "google-satellite",
     "mid": "ngw/openlayers/layer/Google",
     "title": "Google - Спутник",
