@@ -1,1 +1,15 @@
 setup.cfg
+nextgisweb_lipetsk/__init__.py
+nextgisweb_lipetsk.egg-info/PKG-INFO
+nextgisweb_lipetsk.egg-info/SOURCES.txt
+nextgisweb_lipetsk.egg-info/dependency_links.txt
+nextgisweb_lipetsk.egg-info/entry_points.txt
+nextgisweb_lipetsk.egg-info/not-zip-safe
+nextgisweb_lipetsk.egg-info/requires.txt
+nextgisweb_lipetsk.egg-info/top_level.txt
+nextgisweb_lipetsk/lipetsk_manage/__init__.py
+nextgisweb_lipetsk/lipetsk_manage/command.py
+nextgisweb_lipetsk/lipetsk_manage/common.py
+nextgisweb_lipetsk/lipetsk_site/__init__.py
+nextgisweb_lipetsk/lipetsk_site/ident.py
+nextgisweb_lipetsk/lipetsk_site/view.py
