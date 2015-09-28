@@ -11,7 +11,7 @@ from .common import VectorLayerUpdater
 
 @Command.registry.register
 class ManageCommands:
-    identity = 'lipetsk.commands'
+    identity = 'lipetsk.manage'
 
     @classmethod
     def argparser_setup(cls, parser, env):
@@ -23,7 +23,7 @@ class ManageCommands:
 
     @classmethod
     def execute(cls, args, env):
-        if args.migration == 'append_url_field':
+        if args.action == 'append_url_field':
             cls.append_url_field()
 
 
