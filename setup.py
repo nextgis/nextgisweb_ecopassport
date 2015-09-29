@@ -13,7 +13,7 @@ entry_points = {
     ],
 
     'nextgisweb.amd_packages': [
-        #'nextgisweb_lipetsk = nextgisweb_lipetsk:amd_packages',
+        'nextgisweb_lipetsk = nextgisweb_lipetsk:amd_packages',
     ],
 
 }

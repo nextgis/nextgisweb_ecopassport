@@ -27,7 +27,6 @@ def setup_pyramid(comp, config):
     ).add_view(show_selected, renderer='nextgisweb_lipetsk:lipetsk_site/template/display.mako')
 
 
-
 def show_main(request):
     try:
         obj = Resource.filter_by(keyname='public_map').one()
