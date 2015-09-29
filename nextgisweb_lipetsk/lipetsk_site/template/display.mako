@@ -26,13 +26,22 @@
 
 </%def>
 
-<div style="width: 100%; background: url(${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/background.svg')});">
-    <img style="z-index: 5; padding: 5px 5px; position: relative" src="${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/logo.png')}" alt="ГИС ЭКОЛОГИИ ЛИПЕЦКОЙ ОБЛАСТИ">
-    <div style="z-index: 1; height: 92px; width: 400px; top: 0;position: absolute; background: url(${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/flag.png')}) no-repeat scroll 0 0;"></div>
+<div style="width: 100%; height: 100%">
+    <div style="width: 100%; background: url(${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/background.svg')});">
+        <img style="z-index: 5; padding: 5px 5px; position: relative"
+             src="${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/logo.png')}"
+             alt="ГИС ЭКОЛОГИИ ЛИПЕЦКОЙ ОБЛАСТИ"/>
+
+        <div style="z-index: 1; height: 92px; width: 400px; top: 0;position: absolute; background: url(${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/flag.png')}) no-repeat scroll 0 0;"></div>
+    </div>
+
+    <div data-dojo-id="display"
+         data-dojo-type="ngw-lipetsk-site/Display"
+         data-dojo-props="config: displayConfig"
+         style="position: absolute; top: 92px; bottom: 0; right: 0; left: 0;">
+    </div>
 </div>
 
-<div data-dojo-id="display"
-    data-dojo-type="ngw-lipetsk-site/Display"
-    data-dojo-props="config: displayConfig"
-    style="width: 100%; height: 100%">
-</div>
+
+
+
