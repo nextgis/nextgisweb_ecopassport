@@ -4,7 +4,7 @@ define([
     "dijit/_WidgetBase",
     "dijit/_TemplatedMixin",
     "dijit/_WidgetsInTemplateMixin",
-    "dojo/text!ngw-webmap/template/Display.hbs",
+    "dojo/text!ngw-lipetsk-site/template/Display.hbs",
     "dojo/_base/lang",
     "dojo/_base/array",
     "dojo/Deferred",
