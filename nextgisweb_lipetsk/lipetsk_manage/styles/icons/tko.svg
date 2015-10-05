@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32px"
+   height="32px"
+   id="svg2985"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Мусоросортировочные станции.svg">
+  <defs
+     id="defs2987" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="22.395604"
+     inkscape:cx="10.439648"
+     inkscape:cy="16.709086"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     inkscape:window-width="1879"
+     inkscape:window-height="1056"
+     inkscape:window-x="41"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2993" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata2990">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <g
+       id="g4686">
+      <g
+         id="g5203">
+        <path
+           style="fill:#ff0000"
+           inkscape:connector-curvature="0"
+           id="path3029"
+           d="m 21.271148,10.728853 q 0,-2.1825848 -1.544282,-3.7268663 Q 18.182585,5.4577052 16,5.4577052 q -2.182584,0 -3.726866,1.5442815 -1.544281,1.5442815 -1.544281,3.7268663 0,2.182584 1.544281,3.726866 Q 13.817416,16 16,16 q 2.182585,0 3.726866,-1.544281 1.544282,-1.544282 1.544282,-3.726866 z m 5.271147,0 q 0,2.244355 -0.679484,3.685685 L 18.367898,30.351523 Q 18.038452,31.031007 17.389853,31.422225 16.741255,31.813443 16,31.813443 q -0.741255,0 -1.389853,-0.391218 -0.648599,-0.391218 -0.957455,-1.070702 L 6.1371889,14.414538 Q 5.457705,12.973208 5.457705,10.728853 q 0,-4.3651694 3.088563,-7.4537324 Q 11.634831,0.18655764 16,0.18655764 q 4.365169,0 7.453732,3.08856296 3.088563,3.088563 3.088563,7.4537324 z" />
+      </g>
+    </g>
+    <path
+       sodipodi:type="arc"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.63973385000000005;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path4684"
+       sodipodi:cx="17"
+       sodipodi:cy="12"
+       sodipodi:rx="8"
+       sodipodi:ry="8"
+       d="M 25,12 A 8,8 0 1 1 9,12 8,8 0 1 1 25,12 z"
+       transform="matrix(1.1395363,0,0,1.1395363,-3.3721171,-3.0139844)" />
+    <text
+       xml:space="preserve"
+       style="font-size:15.39673233px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="16.499344"
+       y="15.517101"
+       id="text3421"
+       sodipodi:linespacing="125%"
+       transform="scale(0.96981885,1.0311204)"><tspan
+         sodipodi:role="line"
+         id="tspan3423"
+         x="16.499344"
+         y="15.517101"
+         style="font-size:15.39673233px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans Bold">П</tspan></text>
+  </g>
+</svg>

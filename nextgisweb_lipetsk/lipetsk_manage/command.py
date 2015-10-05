@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from sqlalchemy.orm import joinedload_all
 import transaction
+from nextgisweb.env import env
 
 from nextgisweb.feature_layer import FIELD_TYPE
 from nextgisweb.vector_layer import VectorLayer
@@ -19,12 +20,15 @@ class ManageCommands:
                             required=True,
                             choices=[
                                 'append_url_field',
+                                'load_icons',
                             ])
 
     @classmethod
     def execute(cls, args, env):
         if args.action == 'append_url_field':
             cls.append_url_field()
+        if args.action == 'load_icons':
+            cls.load_icons(env)
 
 
 
@@ -46,3 +50,12 @@ class ManageCommands:
 
         transaction.manager.commit()
         db_session.close()
+
+    @classmethod
+    def load_icons(cls, env):
+        db_session = DBSession()
+
+        transaction.manager.begin()
+        print 'Loading style icons...'
+        env.marker_library.load_collection('nextgisweb_lipetsk', '/lipetsk_manage/styles')
+        transaction.manager.commit()
