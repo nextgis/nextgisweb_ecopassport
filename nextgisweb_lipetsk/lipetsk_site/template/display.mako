@@ -1,14 +1,6 @@
 <%inherit file='nextgisweb:pyramid/template/base.mako' />
 
 <%def name="head()">
-    <link href="${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/css/icons.css')}"
-          rel="stylesheet" type="text/css" media="screen"/>
-
-    <link href="${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/css/layout.css')}"
-          rel="stylesheet" type="text/css" media="screen"/>
-
-    <link href="${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/css/dgrid.css')}"
-          rel="stylesheet" type="text/css" media="screen"/>
 
     <% import json %>
 
@@ -28,6 +20,15 @@
             });
         });
     </script>
+
+    <link href="${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/css/icons.css')}"
+          rel="stylesheet" type="text/css" media="screen"/>
+
+    <link href="${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/css/layout.css')}"
+          rel="stylesheet" type="text/css" media="screen"/>
+
+    <link href="${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/css/dgrid.css')}"
+          rel="stylesheet" type="text/css" media="screen"/>
 
     <style type="text/css">
         body, html { width: 100%; height: 100%; margin:0; padding: 0; overflow: hidden; }

@@ -8,73 +8,9 @@
 }
 
 .dgrid-row-odd {
-    background: #999898;
-}
-
-.dgrid-column-region {
-   width: 12em;
+    background: #bbdde8;
 }
 
 .dgrid-column-district {
    width: 13em;
-}
-
-.dgrid-column-settlement {
-   width: 12em;
-}
-
-.dgrid-column-access_point_count {
-   width: 12em;
-}
-
-.dgrid-column-deadline_contract {
-   width: 13em;
-}
-
-.dgrid-column-project_manager {
-   width: 12em;
-}
-
-.dgrid-column-focl_length_order {
-   width: 14em;
-}
-
-.dgrid-column-focl_length_project {
-   width: 14em;
-}
-
-.dgrid-column-focl_length_fact {
-   width: 14em;
-}
-
-.dgrid-column-focl_length_fact {
-   width: 14em;
-}
-
-.dgrid-column-length_on_ol {
-   width: 8em;
-}
-
-.dgrid-column-length_in_ground {
-   width: 10em;
-}
-
-.dgrid-column-length_in_canalization {
-   width: 13em;
-}
-
-.dgrid-column-customer {
-   width: 14em;
-}
-
-.dgrid-column-planned_start_date {
-   width: 14em;
-}
-
-.dgrid-column-planned_finish_date {
-   width: 14em;
-}
-
-.dgrid-column-subcontr {
-   width: 12em;
 }

@@ -23,7 +23,7 @@ define([
                 district: 'Муниципальный район'
         },
 
-        _get_extent_url: ngwConfig.applicationUrl + '/lipetsk/get_district_extent',
+        _get_extent_url: ngwConfig.applicationUrl + '/lipetsk/get_district_extent/',
 
 
         constructor: function (domId) {
@@ -33,11 +33,12 @@ define([
             //grid
             this._grid = new (declare([OnDemandGrid, ColumnResizer, Selection]))(
                 {
+                    showHeader: false,
                     store: this._store,
                     columns: this._columns,
                     selectionMode: 'single',
                     loadingMessage: 'Загрузка данных...',
-                    noDataMessage: 'Ошибка при загрузке райнов'
+                    noDataMessage: 'Ошибка при загрузке данных'
                 }, domId);
 
             this.bindEvents();
@@ -53,9 +54,9 @@ define([
         zoomToResource: function(evt) {
             var row = this._grid.row(evt); //row.id == id of group resource
 
-            xhr.get(this._get_extent_url, {
+            xhr.get(this._get_extent_url + row.id, {
                 handleAs: 'json',
-                data: {id: row.id}
+                data: {}
             }).then(lang.hitch(this, function (data) {
                 if (data && data.extent) {
                     topic.publish('map/zoom_to', data.extent);
