@@ -35,7 +35,7 @@ def setup_pyramid(comp, config):
 
     config.add_route(
         'lipetsk.site.get_district_extent',
-        '/lipetsk/get_district_extent/{dist_id}',
+        '/lipetsk/get_district_extent/{id:\d+}',
     ).add_view(get_district_extent)
 
 
@@ -236,8 +236,10 @@ def get_districts():
     try:
         distr_res = db_session.query(Resource).filter(Resource.keyname == Layers.DISTRICTS, Resource.cls == VectorLayer.identity).one()
     except NoResultFound:
-        raise exc.HTTPInternalServerError(u'Публичная карта не настроена! Обратитесь к администратору сервера')
+        #raise exc.HTTPInternalServerError(u'Публичная карта не настроена! Обратитесь к администратору сервера')
         #raise exc.HTTPFound(request.route_url("section1"))   # Redirect
+        return []
+
 
     query = distr_res.feature_query()
     features = query()
@@ -248,7 +250,8 @@ def get_districts():
     return result
 
 
-def get_district_extent(request, dist_id):
+def get_district_extent(request):
+    dist_id = request.matchdict['id']
     if dist_id is None:
         return Response('[]')
 
@@ -262,9 +265,10 @@ def get_district_extent(request, dist_id):
     try:
         query = distr_res.feature_query()
         query.geom()
-        query.filter_by(id == dist_id)
-        feature = query.first()
-        extent = feature.geom.box
+        query.filter_by(id=int(dist_id))
+        for feat in query():
+            extent = feat.geom.bounds
+            break
     except:
         raise exc.HTTPInternalServerError(u'Район с заданныи id не найден! Обратитесь к администратору сервера')
 
