@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from .view import get_districts
 from nextgisweb import Base
 from nextgisweb.component import Component
 
@@ -22,3 +23,8 @@ class LipetskSiteComponent(Component):
 
     settings_info = (
     )
+
+    def client_settings(self, request):
+        return dict(
+            districts=get_districts(),
+        )

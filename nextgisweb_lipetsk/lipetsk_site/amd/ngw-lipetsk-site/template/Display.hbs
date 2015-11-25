@@ -14,7 +14,8 @@
             data-dojo-props="closable: false, iconClass: 'iconMap'"
             style="width: 100%; height: 100%; padding: 0">
 
-            <div data-dojo-type="dijit/layout/BorderContainer"
+            <div id="mainContainer"
+                data-dojo-type="dijit/layout/BorderContainer"
                 data-dojo-props="gutters: false"
                 style="width: 100%; height: 100%;">
 
@@ -43,6 +44,21 @@
 
                         <!-- Распорка по высоте -->
                         <div data-dojo-type="dijit/form/Button" style="width: 0;">&nbsp;</div>
+
+                        <div data-dojo-attach-point="leftToolbarSwitch"
+                             data-dojo-attach-event="onChange: switchLeftToolbar"
+                             data-dojo-type="dijit/form/ToggleButton"
+                             data-dojo-props="iconClass: 'iconLeftPanel', showLabel: false, checked: true, title: 'Скрыть\\показать левую панель'">
+                        </div>
+
+                        <div data-dojo-attach-point="rightToolbarSwitch"
+                             data-dojo-attach-event="onChange: switchRightToolbar"
+                             data-dojo-type="dijit/form/ToggleButton"
+                             data-dojo-props="iconClass: 'iconRightPanel', showLabel: false, checked: true, title: 'Скрыть\\показать правую панель'">
+                        </div>
+
+                        <div data-dojo-type="dijit/ToolbarSeparator"></div>
+
 
                         <div data-dojo-attach-point="zoomToInitialExtentButton"
                             data-dojo-type="dijit/form/Button"
@@ -73,7 +89,7 @@
                     <div data-dojo-attach-point="mapPane"
                         data-dojo-type="dijit/layout/ContentPane"
                         data-dojo-props="region: 'center'"
-                        style="width: 100%; padding: 0;">
+                        style="width: 100%; padding: 0; margin: 0;">
 
                         <div data-dojo-attach-point="mapNode"
                             style="position: absolute: width: 100%; height: 100%; padding: 0;">
@@ -91,7 +107,8 @@
 
                 </div>
 
-                <div data-dojo-type="dijit/layout/BorderContainer"
+                <div id='leftPanel'
+                    data-dojo-type="dijit/layout/BorderContainer"
                     data-dojo-props="region: 'left', splitter: true, gutters: false"
                     style="width: 250px; padding: 0;">
 
@@ -136,6 +153,34 @@
 
                     </div>
 
+                </div>
+
+                <!-- Правая панель -->
+                <div id='rightPanel'
+                     data-resource-type-filter=""
+                     data-dojo-type="dijit/layout/BorderContainer"
+                     data-dojo-props="region: 'right', splitter: true, gutters: false"
+                     style="width: 260px; padding: 0;">
+
+
+                    <div data-dojo-type="dijit/layout/BorderContainer"
+                         data-dojo-attach-point=""
+                         data-dojo-props="region: 'center', gutters:true, liveSplitters:true"
+                         id="rightPanelsBorderContainer"
+                         style="padding-left: 0; position: relative;">
+
+                        <!-- Панель для размещения списка типа слоев Сит плана-->
+                        <div id="sitLayersPane"
+                             data-dojo-attach-point="sitPlanLayersTreePane"
+                             data-dojo-type="dijit/layout/ContentPane"
+                             data-dojo-props="region: 'center', splitter: true"
+                             data-right-panel="sit"
+                             style="padding: 0;height: 30%" class="sit">
+                            <div class="title">Районы Липецкой области</div>
+                            <div id="districtTable" style="height: 100%; width: 100%"></div>
+                        </div>
+
+                    </div>
                 </div>
 
             </div>

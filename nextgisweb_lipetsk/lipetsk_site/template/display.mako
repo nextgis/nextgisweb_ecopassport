@@ -1,6 +1,15 @@
 <%inherit file='nextgisweb:pyramid/template/base.mako' />
 
 <%def name="head()">
+    <link href="${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/css/icons.css')}"
+          rel="stylesheet" type="text/css" media="screen"/>
+
+    <link href="${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/css/layout.css')}"
+          rel="stylesheet" type="text/css" media="screen"/>
+
+    <link href="${request.static_url('nextgisweb_lipetsk:lipetsk_site/static/css/dgrid.css')}"
+          rel="stylesheet" type="text/css" media="screen"/>
+
     <% import json %>
 
     <script type="text/javascript">

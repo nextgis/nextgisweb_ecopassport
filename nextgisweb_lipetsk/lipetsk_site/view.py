@@ -1,8 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from collections import namedtuple
+import json
+from pyramid.response import Response
+import shapely
 from sqlalchemy.orm.exc import NoResultFound
+
+from nextgisweb import DBSession
+from .well_known_names import Maps, Layers, Fields
 from nextgisweb.resource import Resource
+from nextgisweb.vector_layer import VectorLayer
 from nextgisweb.webmap import WebMap
 from nextgisweb.webmap.plugin import WebmapPlugin
 from nextgisweb.webmap.adapter import WebMapAdapter
@@ -26,10 +33,15 @@ def setup_pyramid(comp, config):
         '/lipetsk/selected',
     ).add_view(show_selected, renderer='nextgisweb_lipetsk:lipetsk_site/template/display.mako')
 
+    config.add_route(
+        'lipetsk.site.get_district_extent',
+        '/lipetsk/get_district_extent/{dist_id}',
+    ).add_view(get_district_extent)
+
 
 def show_main(request):
     try:
-        obj = Resource.filter_by(keyname='public_map').one()
+        obj = Resource.filter_by(keyname=Maps.PUBLIC_MAP).one()
     except NoResultFound:
         # TODO: сделать темплейт для страницы ошибки и вставить в экс, либо сделать переход
         raise exc.HTTPInternalServerError(u'Публичная карта не настроена! Обратитесь к администратору сервера ')
@@ -125,9 +137,10 @@ def show_main(request):
         custom_layout=True
     )
 
+
 def show_selected(request):
     try:
-        obj = Resource.filter_by(keyname='public_map').one()
+        obj = Resource.filter_by(keyname=Maps.PUBLIC_MAP).one()
     except NoResultFound:
         # TODO: сделать темплейт для страницы ошибки и вставить в экс, либо сделать переход
         raise exc.HTTPInternalServerError(u'Публичная карта не настроена! Обратитесь к администратору сервера ')
@@ -216,3 +229,45 @@ def show_selected(request):
         display_config=config,
         custom_layout=True
     )
+
+
+def get_districts():
+    db_session = DBSession()
+    try:
+        distr_res = db_session.query(Resource).filter(Resource.keyname == Layers.DISTRICTS, Resource.cls == VectorLayer.identity).one()
+    except NoResultFound:
+        raise exc.HTTPInternalServerError(u'Публичная карта не настроена! Обратитесь к администратору сервера')
+        #raise exc.HTTPFound(request.route_url("section1"))   # Redirect
+
+    query = distr_res.feature_query()
+    features = query()
+
+    result = []
+    for feature in features:
+        result.append({'id': feature.id, 'district': feature.fields[Fields.DISTRICT_NAME]})
+    return result
+
+
+def get_district_extent(request, dist_id):
+    if dist_id is None:
+        return Response('[]')
+
+    db_session = DBSession()
+
+    try:
+        distr_res = db_session.query(Resource).filter(Resource.keyname == Layers.DISTRICTS, Resource.cls == VectorLayer.identity).one()
+    except NoResultFound:
+        raise exc.HTTPInternalServerError(u'Публичная карта не настроена! Обратитесь к администратору сервера')
+
+    try:
+        query = distr_res.feature_query()
+        query.geom()
+        query.filter_by(id == dist_id)
+        feature = query.first()
+        extent = feature.geom.box
+    except:
+        raise exc.HTTPInternalServerError(u'Район с заданныи id не найден! Обратитесь к администратору сервера')
+
+    resp = {'extent': extent}
+
+    return Response(json.dumps(resp))

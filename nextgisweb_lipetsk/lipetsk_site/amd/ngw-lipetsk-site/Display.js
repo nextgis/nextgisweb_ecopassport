@@ -12,6 +12,7 @@ define([
     "dojo/number",
     "dojo/aspect",
     "dojo/io-query",
+    "dojo/topic",
     "ngw/openlayers",
     "ngw/openlayers/Map",
     "dijit/registry",
@@ -35,6 +36,8 @@ define([
     "ngw-webmap/tool/Measure",
     // settings
     "ngw/settings!webmap",
+    // my
+    "ngw-lipetsk-site/DistrictTable",
     // template
     "dijit/layout/TabContainer",
     "dijit/layout/BorderContainer",
@@ -62,6 +65,7 @@ define([
     number,
     aspect,
     ioQuery,
+    topic,
     openlayers,
     Map,
     registry,
@@ -82,7 +86,8 @@ define([
     ToolBase,
     ToolZoom,
     ToolMeasure,
-    clientSettings
+    clientSettings,
+    DistrictTable
 ) {
 
     var CustomItemFileWriteStore = declare([ItemFileWriteStore], {
@@ -398,12 +403,38 @@ define([
             this._postCreateDeferred.resolve();
         },
 
+        switchLeftToolbar: function(val) {
+            panel = registry.byId("leftPanel");
+            mainContainer = registry.byId("mainContainer");
+            if(val)
+                mainContainer.addChild(panel);
+            else
+                mainContainer.removeChild(panel);
+        },
+
+        switchRightToolbar: function(val) {
+            panel = registry.byId("rightPanel");
+            mainContainer = registry.byId("mainContainer");
+            if(val)
+                mainContainer.addChild(panel);
+            else
+                mainContainer.removeChild(panel);
+        },
+
         startup: function () {
             this.inherited(arguments);
+
+            this.districtTable = new DistrictTable('districtTable');
 
             this.itemTree.startup();
 
             this._startupDeferred.resolve();
+
+            //events
+            topic.subscribe('map/zoom_to', lang.hitch(this, function (new_ext) {
+                 this.map.olMap.zoomToExtent(new_ext, false);
+            }));
+
         },
 
         addTool: function (tool) {
