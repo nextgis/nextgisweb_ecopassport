@@ -1,0 +1,250 @@
+div.main-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+div.header-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+div.body-wrapper {
+    position: absolute;
+    top: 28px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+div.body-wrapper .dijitTabPaneWrapper {
+    overflow: hidden;
+}
+
+#headerContainer {
+    display: table;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+#headerContainer .header {
+    display: table-cell;
+    vertical-align: middle;
+    background-color: #2D3E50;
+}
+
+#headerContainer ul.pure-menu-children {
+    position: absolute;
+    right: 0;
+}
+
+#headerContainer .pure-menu a,
+#headerContainer ul.pure-menu-children li.pure-menu-item:hover,
+#headerContainer ul.pure-menu-children li.pure-menu-item a:hover{
+    border: none;
+}
+
+div.dijitTabPaneWrapper.dijitTabContainerTop-container.dijitAlignCenter {
+    border: none;
+}
+
+/* resources type drop down styles */
+
+#resourcesTypeSelector {
+    width: 100%;
+}
+
+#resourcesTypeSelector td.dijitReset.dijitStretch.dijitButtonContents {
+    width: 100%;
+}
+
+/* resource tree styles */
+
+#resourcesTree {
+    width: 98%;
+    height: 98%;
+    margin: 1%;
+}
+
+/*#resourcesTree a[chb="false"] i.jstree-checkbox {*/
+/*display: none;*/
+/*}*/
+
+#resourcesTree i.jstree-themeicon-custom {
+    width: 16px;
+    height: 16px;
+    background: url(../img/compulink-sprite.png) 0, -2px;
+}
+
+#resourcesTree i.jstree-themeicon-custom.situation_plan {
+    background-position: -32px, -2px;
+}
+
+#resourcesTree i.jstree-themeicon-custom.focl_struct {
+    background-position: -48px, -2px;
+}
+
+#resourcesTree a.jstree-disabled i.jstree-themeicon-custom {
+    background-position: -64px, -2px;
+}
+
+#resourcesTree a.jstree-disabled {
+    color: black;
+}
+
+#resourcesTree a.jstree-disabled > i.jstree-icon {
+    opacity: 1;
+    /* Firefox 10+ */
+    filter: none;
+    /* IE6-9 */
+    -webkit-filter: none;
+    /* Chrome 19+ & Safari 6+ */
+}
+
+/* right panel trees */
+
+/*#foclLayersTree .jstree-icon.jstree-themeicon,*/
+/*#spLayersTree .jstree-icon.jstree-themeicon {*/
+/*background: url(../img/compulink-sprite.png) -16px, 0;*/
+/*width: 16px;*/
+/*height: 21px; *//* todo: for centering icon by text, need implement this by background-position */
+/*}*/
+
+#rightPanel div.dijitContentPane {
+    overflow: hidden;
+}
+
+#rightPanel div.tree-wrapper,
+#rightPanel div.legend_wrapper,
+#rightPanel div.tree-overlay {
+    position: absolute;
+    top: 23px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#rightPanel div.tree-wrapper,
+#rightPanel div.legend_wrapper {
+    overflow: auto;
+}
+
+#rightPanel i.jstree-ocl {
+    display: none;
+}
+
+#rightPanel i.jstree-checkbox {
+    margin-right: 2px;
+}
+
+/*layers types icons*/
+#rightPanel i.jstree-icon.jstree-themeicon {
+    width: 16px;
+    height: 20px;
+}
+
+#rightPanel i.endpoint {
+    background: url('../img/layers-type-sprite.png') 0 0;
+}
+
+#rightPanel i.optical_cross,
+#rightPanel i.sp_optical_cross {
+    background: url('../img/layers-type-sprite.png') -16px 0;
+}
+
+#rightPanel i.fosc,
+#rightPanel i.sp_fosc {
+    background: url('../img/layers-type-sprite.png') -32px 0;
+}
+
+#rightPanel i.optical_cable {
+    background: url('../img/layers-type-sprite.png') -48px 0;
+}
+
+#rightPanel i.access_point,
+#rightPanel i.sp_access_point {
+    background: url('../img/layers-type-sprite.png') -64px 0;
+}
+
+#rightPanel i.transmission_tower {
+    background: url('../img/layers-type-sprite.png') -80px 0;
+}
+
+#rightPanel i.sump_canalization,
+#rightPanel i.sp_sump_canalization {
+    background: url('../img/layers-type-sprite.png') -96px 0;
+}
+
+#rightPanel i.note,
+#rightPanel i.sp_note {
+    background: url('../img/layers-type-sprite.png') -112px 0;
+}
+
+#rightPanel i.sp_electrical_substation {
+    background: url('../img/layers-type-sprite.png') -128px 0;
+}
+
+#rightPanel i.sp_communication_center {
+    background: url('../img/layers-type-sprite.png') -128px 0;
+}
+
+#rightPanel i.sp_other_point_object {
+    background: url('../img/layers-type-sprite.png') -144px 0;
+}
+
+#rightPanel i.sp_focl {
+    background: url('../img/layers-type-sprite.png') -160px 0;
+}
+
+#rightPanel i.sp_overhead_power_line {
+    background: url('../img/layers-type-sprite.png') 0 0;
+}
+
+#rightPanel i.sp_other_line_object {
+    background: url('../img/layers-type-sprite.png') -16px 0;
+}
+
+#rightPanel i.sp_other_polygon_object {
+    background: url('../img/layers-type-sprite.png') -32px 0;
+}
+
+#rightPanel i.special_transition {
+    background: url('../img/layers-type-sprite.png') -32px 0;
+}
+
+/* temporary */
+#rightPanel i.real_special_transition,
+#rightPanel i.real_fosc {
+    background: url('../img/layers-type-sprite.png') 0 0;
+}
+
+#rightPanel i.real_special_transition_point,
+#rightPanel i.real_optical_cross {
+    background: url('../img/layers-type-sprite.png') -16px 0;
+}
+
+#rightPanel i.real_optical_cable,
+#rightPanel i.real_access_point {
+    background: url('../img/layers-type-sprite.png') -32px 0;
+}
+
+#rightPanel i.real_optical_cable_point {
+    background: url('../img/layers-type-sprite.png') -32px 0;
+}
+
+/* map styles */
+/* for identification popup */
+div.ngwPopup {
+    z-index: 999999 !important;
+}
+
+#resourcesTree a.jstree-disabled i.jstree-checkbox,
+#resourcesTree a.jstree-disabled i.jstree-icon {
+    opacity: 0.7 !important;
+}
+
+#resourcesTree a.jstree-disabled .jstree-checkbox.jstree-undetermined:hover {
+    background-position: -199px -7px;
+}
