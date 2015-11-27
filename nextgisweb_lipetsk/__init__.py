@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 from .lipetsk_manage import command  # NOQA
 
 
@@ -7,6 +6,7 @@ def pkginfo():
     return dict(
         components=dict(
             lipetsk_site='nextgisweb_lipetsk.lipetsk_site',
+            lipetsk_manage='nextgisweb_lipetsk.lipetsk_manage',
         )
     )
 
