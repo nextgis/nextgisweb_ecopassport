@@ -6,6 +6,8 @@ from tempfile import NamedTemporaryFile
 
 from sqlalchemy.orm import joinedload_all
 import transaction
+
+from lipetsk_manage.proxy import setup_http_proxy
 from ..lipetsk_site.well_known_names import Layers, Fields
 
 from nextgisweb.feature_layer import FIELD_TYPE
@@ -74,6 +76,8 @@ class ManageCommands:
         #create temp file
         with NamedTemporaryFile(delete=True) as temp_file:
             #try:
+            setup_http_proxy('proxy.admlr.loc', 8080)
+
             # open ftp
             sett = env.lipetsk_manage.settings
             ftp_client = ftplib.FTP(sett['ftp_address'])
