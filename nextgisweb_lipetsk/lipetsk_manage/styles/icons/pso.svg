@@ -14,7 +14,7 @@
    id="svg2985"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="mss.svg">
+   sodipodi:docname="pso.svg">
   <defs
      id="defs2987" />
   <sodipodi:namedview
@@ -48,7 +48,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -56,11 +56,15 @@
      id="layer1"
      inkscape:label="Layer 1"
      inkscape:groupmode="layer">
-    <path
-       style="fill:#ff5700;fill-opacity:1"
-       inkscape:connector-curvature="0"
-       id="path3029"
-       d="m 21.271148,10.728853 q 0,-2.1825848 -1.544282,-3.7268663 Q 18.182585,5.4577052 16,5.4577052 q -2.182584,0 -3.726866,1.5442815 -1.544281,1.5442815 -1.544281,3.7268663 0,2.182584 1.544281,3.726866 Q 13.817416,16 16,16 q 2.182585,0 3.726866,-1.544281 1.544282,-1.544282 1.544282,-3.726866 z m 5.271147,0 q 0,2.244355 -0.679484,3.685685 L 18.367898,30.351523 Q 18.038452,31.031007 17.389853,31.422225 16.741255,31.813443 16,31.813443 q -0.741255,0 -1.389853,-0.391218 -0.648599,-0.391218 -0.957455,-1.070702 L 6.1371889,14.414538 Q 5.457705,12.973208 5.457705,10.728853 q 0,-4.3651694 3.088563,-7.4537324 Q 11.634831,0.18655764 16,0.18655764 q 4.365169,0 7.453732,3.08856296 3.088563,3.088563 3.088563,7.4537324 z" />
+    <g
+       style="fill:#cb2c2c;fill-opacity:1"
+       id="g5203">
+      <path
+         d="m 21.271148,10.728853 q 0,-2.1825848 -1.544282,-3.7268663 Q 18.182585,5.4577052 16,5.4577052 q -2.182584,0 -3.726866,1.5442815 -1.544281,1.5442815 -1.544281,3.7268663 0,2.182584 1.544281,3.726866 Q 13.817416,16 16,16 q 2.182585,0 3.726866,-1.544281 1.544282,-1.544282 1.544282,-3.726866 z m 5.271147,0 q 0,2.244355 -0.679484,3.685685 L 18.367898,30.351523 Q 18.038452,31.031007 17.389853,31.422225 16.741255,31.813443 16,31.813443 q -0.741255,0 -1.389853,-0.391218 -0.648599,-0.391218 -0.957455,-1.070702 L 6.1371889,14.414538 Q 5.457705,12.973208 5.457705,10.728853 q 0,-4.3651694 3.088563,-7.4537324 Q 11.634831,0.18655764 16,0.18655764 q 4.365169,0 7.453732,3.08856296 3.088563,3.088563 3.088563,7.4537324 z"
+         id="path3029"
+         inkscape:connector-curvature="0"
+         style="fill:#cb2c2c;fill-opacity:1" />
+    </g>
     <path
        sodipodi:type="arc"
        style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.63973385000000005;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -73,16 +77,16 @@
        transform="matrix(1.1395363,0,0,1.1395363,-3.3721171,-3.0139844)" />
     <text
        xml:space="preserve"
-       style="font-size:7.40402079px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="16.60862"
-       y="12.607645"
+       style="font-style:normal;font-weight:normal;font-size:10.06468964px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="16.609919"
+       y="13.577464"
        id="text3421"
        sodipodi:linespacing="125%"
        transform="scale(0.96981885,1.0311204)"><tspan
          sodipodi:role="line"
          id="tspan3423"
-         x="16.60862"
-         y="12.607645"
-         style="font-size:7.40402079px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Sans;-inkscape-font-specification:Sans Bold">МСС</tspan></text>
+         x="16.609919"
+         y="13.577464"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.5px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Bold';text-align:center;writing-mode:lr;text-anchor:middle">ПСО</tspan></text>
   </g>
 </svg>

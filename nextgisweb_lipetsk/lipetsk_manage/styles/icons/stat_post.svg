@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg2985"
+   height="32px"
+   width="32px">
+  <defs
+     id="defs2987" />
+  <metadata
+     id="metadata2990">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1">
+    <g
+       id="g4686">
+      <g
+         id="g5203">
+        <path
+           d="m 21.271148,10.728853 q 0,-2.1825848 -1.544282,-3.7268663 Q 18.182585,5.4577052 16,5.4577052 q -2.182584,0 -3.726866,1.5442815 -1.544281,1.5442815 -1.544281,3.7268663 0,2.182584 1.544281,3.726866 Q 13.817416,16 16,16 q 2.182585,0 3.726866,-1.544281 1.544282,-1.544282 1.544282,-3.726866 z m 5.271147,0 q 0,2.244355 -0.679484,3.685685 L 18.367898,30.351523 Q 18.038452,31.031007 17.389853,31.422225 16.741255,31.813443 16,31.813443 q -0.741255,0 -1.389853,-0.391218 -0.648599,-0.391218 -0.957455,-1.070702 L 6.1371889,14.414538 Q 5.457705,12.973208 5.457705,10.728853 q 0,-4.3651694 3.088563,-7.4537324 Q 11.634831,0.18655764 16,0.18655764 q 4.365169,0 7.453732,3.08856296 3.088563,3.088563 3.088563,7.4537324 z"
+           id="path3029"
+           style="fill:#5568f7;fill-opacity:1" />
+      </g>
+    </g>
+    <path
+       transform="matrix(1.1395363,0,0,1.1395363,-3.3721171,-3.0139844)"
+       d="M 25,12 A 8,8 0 1 1 9,12 8,8 0 1 1 25,12 z"
+       id="path4684"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.63973385000000005;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       transform="scale(0.96981885,1.0311204)"
+       id="text3421"
+       y="12.607645"
+       x="16.60862"
+       style="font-style:normal;font-weight:normal;font-size:7.40402079px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.40402079px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle"
+         y="12.607645"
+         x="16.60862"
+         id="tspan3423">СП</tspan></text>
+  </g>
+</svg>
