@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import csv
-import ftplib
 import subprocess
 import tempfile
 from datetime import datetime
@@ -9,7 +8,6 @@ from tempfile import NamedTemporaryFile
 from sqlalchemy.orm import joinedload_all
 import transaction
 
-from lipetsk_manage.proxy import setup_http_proxy
 from ..lipetsk_site.well_known_names import Layers, Fields
 
 from nextgisweb.feature_layer import FIELD_TYPE
