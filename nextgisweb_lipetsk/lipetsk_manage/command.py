@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import csv
 import ftplib
+import subprocess
+import tempfile
 from datetime import datetime
 from tempfile import NamedTemporaryFile
 
@@ -76,15 +78,27 @@ class ManageCommands:
         #create temp file
         with NamedTemporaryFile(delete=True) as temp_file:
             #try:
-            setup_http_proxy('proxy.admlr.loc', 8080)
 
             # open ftp
             sett = env.lipetsk_manage.settings
-            ftp_client = ftplib.FTP(sett['ftp_address'])
-            ftp_client.login(user=sett['ftp_login'], passwd=sett['ftp_pass'])
-            ftp_client.retrbinary('RETR ' + sett['ftp_file_name'], temp_file.write)
-            ftp_client.close()
-            temp_file.seek(0)
+
+            #ftp_client = ftplib.FTP(sett['ftp_address'])
+            #ftp_client.login(user=sett['ftp_login'], passwd=sett['ftp_pass'])
+            #ftp_client.retrbinary('RETR ' + sett['ftp_file_name'], temp_file.write)
+            #ftp_client.close()
+            #temp_file.seek(0)
+
+            temp_file_name = tempfile.mktemp()
+
+
+            proc_exec = subprocess.check_call([
+                'wget',
+                'ftp://%s:%s@%s/%s' % (sett['ftp_login'], sett['ftp_pass'], sett['ftp_address'], sett['ftp_file_name']),
+                '-O',
+                temp_file_name
+            ])
+
+            temp_file = open(temp_file_name)
 
             # parse csv to list
             dialect = csv.Sniffer().sniff(temp_file.read(), delimiters=';')
