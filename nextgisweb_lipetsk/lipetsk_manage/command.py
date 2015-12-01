@@ -5,8 +5,7 @@ import tempfile
 from datetime import datetime
 from tempfile import NamedTemporaryFile
 
-import os
-import sys
+from os import path, remove
 from sqlalchemy.orm import joinedload_all
 import transaction
 
@@ -128,7 +127,7 @@ class ManageCommands:
 
                 # close and remove
                 temp_file.close()
-                sys.path.remove(temp_file_name)
+                remove(temp_file_name)
 
                 # get last values for every code
                 last_values = {}
@@ -172,7 +171,7 @@ class ManageCommands:
             finally:
                 # try to remove temp file
                 try:
-                    sys.path.remove(temp_file_name)
+                    remove(temp_file_name)
                 except:
                     pass
 
