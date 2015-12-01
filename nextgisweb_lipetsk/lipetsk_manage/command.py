@@ -5,6 +5,8 @@ import tempfile
 from datetime import datetime
 from tempfile import NamedTemporaryFile
 
+import os
+import sys
 from sqlalchemy.orm import joinedload_all
 import transaction
 
@@ -75,92 +77,102 @@ class ManageCommands:
     def import_values(cls, env):
         #create temp file
         with NamedTemporaryFile(delete=True) as temp_file:
-            #try:
+            try:
 
-            # open ftp
-            sett = env.lipetsk_manage.settings
+                # open ftp
+                sett = env.lipetsk_manage.settings
 
-            #ftp_client = ftplib.FTP(sett['ftp_address'])
-            #ftp_client.login(user=sett['ftp_login'], passwd=sett['ftp_pass'])
-            #ftp_client.retrbinary('RETR ' + sett['ftp_file_name'], temp_file.write)
-            #ftp_client.close()
-            #temp_file.seek(0)
+                #ftp_client = ftplib.FTP(sett['ftp_address'])
+                #ftp_client.login(user=sett['ftp_login'], passwd=sett['ftp_pass'])
+                #ftp_client.retrbinary('RETR ' + sett['ftp_file_name'], temp_file.write)
+                #ftp_client.close()
+                #temp_file.seek(0)
 
-            temp_file_name = tempfile.mktemp()
+                temp_file_name = tempfile.mktemp()
 
+                proc_exec = subprocess.check_call([
+                    'wget',
+                    'ftp://%s:%s@%s/%s' % (sett['ftp_login'], sett['ftp_pass'], sett['ftp_address'], sett['ftp_file_name']),
+                    '-O',
+                    temp_file_name
+                ])
 
-            proc_exec = subprocess.check_call([
-                'wget',
-                'ftp://%s:%s@%s/%s' % (sett['ftp_login'], sett['ftp_pass'], sett['ftp_address'], sett['ftp_file_name']),
-                '-O',
-                temp_file_name
-            ])
+                temp_file = open(temp_file_name)
 
-            temp_file = open(temp_file_name)
+                # parse csv to list
+                dialect = csv.Sniffer().sniff(temp_file.read(), delimiters=';')
+                temp_file.seek(0)
 
-            # parse csv to list
-            dialect = csv.Sniffer().sniff(temp_file.read(), delimiters=';')
-            temp_file.seek(0)
+                mon_values = dict()
+                csv_reader = csv.DictReader(temp_file, dialect=dialect)
+                for row in csv_reader:
+                    code = int(row['PNZCode'])
 
-            mon_values = dict()
-            csv_reader = csv.DictReader(temp_file, dialect=dialect)
-            for row in csv_reader:
-                code = int(row['PNZCode'])
+                    date_mon = row['Date']
+                    time_mon = row['Time']
 
-                date_mon = row['Date']
-                time_mon = row['Time']
+                    component = unicode(row['Component'], 'cp1251')
+                    emission = row['Emission']
 
-                component = unicode(row['Component'], 'cp1251')
-                emission = row['Emission']
+                    new_val = {
+                        'dt': datetime.strptime(u'%s %s' % (date_mon, time_mon), '%d.%m.%Y %H:%M:%S'),
+                        'comp_text': u'%s - %s' % (component, emission)
+                    }
 
-                new_val = {
-                    'dt': datetime.strptime(u'%s %s' % (date_mon, time_mon), '%d.%m.%Y %H:%M:%S'),
-                    'comp_text': u'%s - %s' % (component, emission)
-                }
-
-                if code in mon_values.keys():
-                    total = mon_values[code]
-                    total.append(new_val)
-                    mon_values[code] = total
-                else:
-                    mon_values[code] = [new_val]
-
-            # get last values for every code
-            last_values = {}
-            for code, values in mon_values.iteritems():
-                # get max dt
-                max_dt = values[0]['dt']
-                for val in values:
-                    if val['dt'] > max_dt:
-                        max_dt = val['dt']
-                # filter values by dt
-                filtered = filter(lambda x: x['dt'] == max_dt, values)
-                # generate str
-                result_str = ''
-                for val in filtered:
-                    if result_str:
-                        result_str = u'%s\n%s' % (result_str, val['comp_text'])
+                    if code in mon_values.keys():
+                        total = mon_values[code]
+                        total.append(new_val)
+                        mon_values[code] = total
                     else:
-                        result_str = val['comp_text']
-                # set
-                last_values[code] = {'comp_text': result_str, 'dt': max_dt}
+                        mon_values[code] = [new_val]
 
-            # save to layer
-            db_session = DBSession()
-            transaction.manager.begin()
+                # close and remove
+                temp_file.close()
+                sys.path.remove(temp_file_name)
 
-            distr_res = db_session.query(Resource).filter(Resource.keyname == Layers.STATIONARY_POSTS, Resource.cls == VectorLayer.identity).one()
-            query = distr_res.feature_query()
-            features = query()
-            for feature in features:
-                if feature.fields[Fields.STATIONARY_POSTS_ID] in last_values.keys():
-                    feat_vals = last_values[feature.fields[Fields.STATIONARY_POSTS_ID]]
-                    feature.fields[Fields.STATIONARY_POSTS_MONIT_DT] = datetime.strftime(feat_vals['dt'], '%d.%m.%Y %H:%M')
-                    feature.fields[Fields.STATIONARY_POSTS_MONIT_RES] = feat_vals['comp_text']
-                    distr_res.feature_put(feature)
+                # get last values for every code
+                last_values = {}
+                for code, values in mon_values.iteritems():
+                    # get max dt
+                    max_dt = values[0]['dt']
+                    for val in values:
+                        if val['dt'] > max_dt:
+                            max_dt = val['dt']
+                    # filter values by dt
+                    filtered = filter(lambda x: x['dt'] == max_dt, values)
+                    # generate str
+                    result_str = ''
+                    for val in filtered:
+                        if result_str:
+                            result_str = u'%s\n%s' % (result_str, val['comp_text'])
+                        else:
+                            result_str = val['comp_text']
+                    # set
+                    last_values[code] = {'comp_text': result_str, 'dt': max_dt}
 
-            transaction.manager.commit()
-            # except:
-            #     # TODO: need to log!
-            #     pass
+                # save to layer
+                db_session = DBSession()
+                transaction.manager.begin()
+
+                distr_res = db_session.query(Resource).filter(Resource.keyname == Layers.STATIONARY_POSTS, Resource.cls == VectorLayer.identity).one()
+                query = distr_res.feature_query()
+                features = query()
+                for feature in features:
+                    if feature.fields[Fields.STATIONARY_POSTS_ID] in last_values.keys():
+                        feat_vals = last_values[feature.fields[Fields.STATIONARY_POSTS_ID]]
+                        feature.fields[Fields.STATIONARY_POSTS_MONIT_DT] = datetime.strftime(feat_vals['dt'], '%d.%m.%Y %H:%M')
+                        feature.fields[Fields.STATIONARY_POSTS_MONIT_RES] = feat_vals['comp_text']
+                        distr_res.feature_put(feature)
+
+                transaction.manager.commit()
+            except:
+                import traceback
+                traceback.print_exc()
+
+            finally:
+                # try to remove temp file
+                try:
+                    sys.path.remove(temp_file_name)
+                except:
+                    pass
 
